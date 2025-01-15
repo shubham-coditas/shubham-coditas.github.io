@@ -45,7 +45,7 @@
             "get": {
                 "operationId": "api_document_policy_retrieve",
                 "description": "This endpoint retrieves a policy document by policy_id.",
-                "summary": "Retrieve Tenant Document",
+                "summary": "Retrieve Policy Document by ID",
                 "parameters": [
                     {
                         "in": "query",
@@ -134,8 +134,8 @@
         "/api/export": {
             "post": {
                 "operationId": "api_export_create",
-                "description": "Export generated Review, Request & Clinical Summary in downlodable FHIR API format or PDF",
-                "summary": "Export generated Review, Request & Clinical Summary ",
+                "description": "Export generated Review, Request & Clinical Summary in downlodable FHIR format or PDF (outbound)",
+                "summary": "Export generated Review, Request & Clinical Summary",
                 "tags": [
                     "Review, Request & Clinical Summary"
                 ],
@@ -176,8 +176,8 @@
         "/api/keyword/search": {
             "post": {
                 "operationId": "api_keyword_search_create",
-                "description": "This API allows you to do smart search on the EMR and policy guideline for the given request_id",
-                "summary": "Smart search",
+                "description": "This API enables smart searching on the EMR and policy guidelines based on the provided request_id. It allows users to find relevant information quickly and efficiently.",
+                "summary": "Perform a smart search on EMR and policy guidelines using request_id",
                 "parameters": [
                     {
                         "in": "query",
@@ -259,8 +259,8 @@
         "/api/retry_task": {
             "get": {
                 "operationId": "api_retry_task_retrieve",
-                "description": "This API endpoint allows retrying specific summarization tasks that have failed during the previous attempt. \n        If any task fails during the summarization process initiated by the 'upload_summarize_track' API, the failed tasks \n        are included in the response of that API along with the successful results. \n        You can retry those specific failed tasks using this API by providing the task ID and the summary type associated with the failed task.",
-                "summary": "Retry specific failed task",
+                "description": "This API endpoint allows retrying specific summarization tasks that have failed during the previous attempt. If any task fails during the summarization process initiated by the 'upload_summarize_track' API, the failed tasks are included in the response of that API along with the successful results. You can retry those specific failed tasks using this API by providing the task ID and the summary type associated with the failed task.",
+                "summary": "Retry Failed Summarization Task",
                 "parameters": [
                     {
                         "in": "query",
@@ -302,7 +302,7 @@
             "get": {
                 "operationId": "api_review_summary_retrieve",
                 "description": "This endpoint retrieves the review summary based on the clinical summary and plan guidelines.",
-                "summary": "Get review summary",
+                "summary": "Get Review Summary",
                 "parameters": [
                     {
                         "in": "query",
@@ -341,8 +341,8 @@
         "/api/upload/policy/": {
             "post": {
                 "operationId": "api_upload_policy_create",
-                "description": "This endpoint will be used to generate the embeddings of the plan policy documents",
-                "summary": "Embedding generation",
+                "description": "Generate embeddings for plan policy documents to facilitate semantic search and analysis for policy-related information",
+                "summary": "Generate Embeddings for Plan Policy Documents",
                 "tags": [
                     "Plan/Policy Configuration"
                 ],
@@ -462,7 +462,7 @@
                         "content": {
                             "application/json": {
                                 "schema": {
-                                    "$ref": "#/components/schemas/ClinicalSummaryResponse"
+                                    "$ref": "#/components/schemas/GenericResponse"
                                 }
                             }
                         },
@@ -512,30 +512,10 @@
             }
         },
         "/api/users/": {
-            "get": {
-                "operationId": "api_users_retrieve",
-                "description": "This endpoint retrieves all users with the SYSTEM_ADMIN role.",
-                "summary": "Retrieve System Admin Users",
-                "tags": [
-                    "User Management"
-                ],
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/UserRetrieveSerializerResponse"
-                                }
-                            }
-                        },
-                        "description": ""
-                    }
-                }
-            },
             "post": {
                 "operationId": "api_users_create",
                 "description": "This endpoint allows users to add a new user by providing necessary data.",
-                "summary": "Public API to Add a new user",
+                "summary": "Add a New User via Public API",
                 "tags": [
                     "User Management"
                 ],
@@ -576,7 +556,7 @@
             "put": {
                 "operationId": "auth_logout_update",
                 "description": "This endpoint allows users to logout by invalidating the access token.",
-                "summary": "Client application logout service.",
+                "summary": "Logout Service for Client Applications",
                 "tags": [
                     "Auth"
                 ],
@@ -597,8 +577,8 @@
         "/auth/microsoft/": {
             "post": {
                 "operationId": "auth_microsoft_create",
-                "description": "This endpoint allows Sign In by Microsoft login validator based on access_token",
-                "summary": "Microsoft login validator based on access_token",
+                "description": "This endpoint allows Sign In using Microsoft login validator based on access_token.",
+                "summary": "Microsoft Login Validation with Access Token",
                 "tags": [
                     "Auth"
                 ],
@@ -639,8 +619,8 @@
         "/auth/roles/": {
             "get": {
                 "operationId": "auth_roles_list",
-                "description": "This endpoint allows to Fetch/List role master",
-                "summary": "Fetch/List role master",
+                "description": "This endpoint allows fetching or listing the role master data.",
+                "summary": "Fetch or List Role Master",
                 "tags": [
                     "Role Master View"
                 ],
@@ -660,50 +640,10 @@
                     }
                 }
             },
-            "post": {
-                "operationId": "auth_roles_create",
-                "description": "This endpoint allows System Admin to update role master's Baseline review time",
-                "summary": "Update role master's Baseline review time",
-                "tags": [
-                    "Role Master View"
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RoleBaselineReviewTimeUpdateRequestRequest"
-                            }
-                        },
-                        "application/x-www-form-urlencoded": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RoleBaselineReviewTimeUpdateRequestRequest"
-                            }
-                        },
-                        "multipart/form-data": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RoleBaselineReviewTimeUpdateRequestRequest"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GenericResponse"
-                                }
-                            }
-                        },
-                        "description": ""
-                    }
-                }
-            },
             "put": {
                 "operationId": "auth_roles_update",
-                "description": "This endpoint allows to Save/Update features against the role",
-                "summary": "Save/Update features against the role",
+                "description": "This endpoint allows saving or updating features associated with a role.",
+                "summary": "Save or Update Features for a Role",
                 "tags": [
                     "Role Master View"
                 ],
@@ -744,8 +684,8 @@
         "/auth/users/": {
             "get": {
                 "operationId": "auth_users_retrieve",
-                "description": "This endpoint allows to Fetch/List all users present in table for tenant",
-                "summary": "Fetch/List all users present in table for tenant",
+                "description": "This endpoint allows fetching or listing all users present in the table for a specific tenant.",
+                "summary": "Fetch or List All Users for a Tenant",
                 "parameters": [
                     {
                         "in": "query",
@@ -806,8 +746,8 @@
             },
             "put": {
                 "operationId": "auth_users_update",
-                "description": "This endpoint allows to Save/Update roles by the user",
-                "summary": "Save/Update roles by the user",
+                "description": "This endpoint allows saving or updating roles for a user.",
+                "summary": "Save or Update User Roles",
                 "tags": [
                     "User Management"
                 ],
@@ -848,8 +788,8 @@
         "/auth/users/{email}/": {
             "put": {
                 "operationId": "auth_users_update_2",
-                "description": "This endpoint put method to activate/deactivate user one at a time",
-                "summary": "Activate/deactivate user one at a time",
+                "description": "This endpoint uses the PUT method to activate or deactivate users one at a time.",
+                "summary": "Activate or Deactivate User Individually",
                 "parameters": [
                     {
                         "in": "path",
@@ -877,7 +817,7 @@
                 }
             }
         },
-        "/dashboard/": {
+        "/request_management/": {
             "post": {
                 "operationId": "dashboard_create",
                 "description": "This endpoint returns a list of EDI278 records with pagination, filters, and sorting.",
@@ -988,7 +928,7 @@
                 }
             }
         },
-        "/dashboard/{id}/": {
+        "/request_management/{id}/": {
             "get": {
                 "operationId": "dashboard_retrieve",
                 "description": "This endpoint allows users to retrieve a specific EDI278 record.",
@@ -1037,7 +977,7 @@
                 }
             }
         },
-        "/dashboard/create_case/": {
+        "/request_management/create_case/": {
             "post": {
                 "operationId": "dashboard_create_case_create",
                 "description": "This endpoint allows users to create a new EDI278 record or inbound FHIR request by uploading data PA authorisation in pdf/json format",
@@ -1160,7 +1100,7 @@
                 }
             }
         },
-        "/dashboard/plan_guideline_summary": {
+        "/request_management/plan_guideline_summary": {
             "get": {
                 "operationId": "dashboard_plan_guideline_summary_retrieve",
                 "description": "This endpoint will be used to get the summary of the plan guidelines of a specified EDI request.",
