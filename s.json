@@ -7,10 +7,10 @@
     },
     "security": [
         {
-            "apiKeyHeader": []
+            "access_token": []
         },
         {
-            "apiKeyQuery": []
+            "apiKeyHeader": []
         }
     ],
     "servers": [
@@ -5864,20 +5864,17 @@
             }
         },
         "securitySchemes": {
-            "apiKeyHeader": {
-                "type": "apiKey",
-                "name": "Ocp-Apim-Subscription-Key",
-                "in": "header"
-            },
-            "apiKeyQuery": {
-                "type": "apiKey",
-                "name": "subscription-key",
-                "in": "query"
-            },
             "access_token": {
                 "type": "apiKey",
                 "name": "access_token",
-                "in": "header"
+                "in": "header",
+                "description": "Access token for authentication"
+            },
+            "apiKeyHeader": {
+                "type": "apiKey",
+                "name": "Ocp-Apim-Subscription-Key",
+                "in": "header",
+                "description": "Subscription key for gatweay authentication"
             }
         }
     }
