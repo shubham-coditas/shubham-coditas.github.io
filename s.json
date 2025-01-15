@@ -18,6 +18,28 @@
             "url": "127.0.0.1:8000"
         }
     ],
+    "tags": [
+        {
+            "name": "User Management",
+            "description": "API endpoints for managing user accounts, roles, and permissions."
+        },
+        {
+            "name": "Role Master & User Activation/Deactivation",
+            "description": "Updated description for Role Master & User Activation/Deactivation."
+        },
+        {
+            "name": "Plan/Policy Configuration",
+            "description": "API endpoints for managing plan/policy documents and related configurations."
+        },
+        {
+            "name": "Request Management or Reviewer's Dashboard",
+            "description": "Updated description for Request Management or Reviewer's Dashboard."
+        },
+        {
+            "name": "Review, Request & Clinical Summary",
+            "description": "API endpoints for generating and managing review summaries, requests, and clinical summaries."
+        }
+    ],
     "paths": {
         "/api/access_control/": {
             "get": {
@@ -87,8 +109,8 @@
             },
             "delete": {
                 "operationId": "api_document_policy_destroy",
-                "description": "This endpoint deletes a tenant document by policy_id.",
-                "summary": "Delete Tenant Document",
+                "description": "This endpoint deletes a document by policy_id.",
+                "summary": "Delete Policy Document by ID",
                 "parameters": [
                     {
                         "in": "query",
@@ -301,7 +323,7 @@
         "/api/review/summary": {
             "get": {
                 "operationId": "api_review_summary_retrieve",
-                "description": "This endpoint retrieves the review summary based on the clinical summary and plan guidelines.",
+                "description": "This endpoint retrieves the review summary based on the clinical summary and plan guidelines. It serves as a decision API for approving or denying requests.",
                 "summary": "Get Review Summary",
                 "parameters": [
                     {
@@ -381,8 +403,8 @@
             },
             "put": {
                 "operationId": "api_upload_policy_update",
-                "description": "This endpoint updates a tenant document by uuid.",
-                "summary": "Update Tenant Document",
+                "description": "This endpoint updates a policy document and its related fields.",
+                "summary": "Update Policy Document by ID",
                 "parameters": [
                     {
                         "in": "query",
@@ -390,7 +412,7 @@
                         "schema": {
                             "type": "string"
                         },
-                        "description": "The unique identifier for the tenant document",
+                        "description": "The unique identifier for the policy document",
                         "required": true
                     }
                 ],
