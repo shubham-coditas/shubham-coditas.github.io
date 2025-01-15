@@ -25,7 +25,7 @@
                 "description": "The API authenticate User profile to return users info, its roles, role based permissions and global client app permissions.",
                 "summary": "User profile api to return users info, its roles, role based permissions and global client app permissions.",
                 "tags": [
-                    "Auth"
+                    "User Management"
                 ],
                 "responses": {
                     "200": {
@@ -558,7 +558,7 @@
                 "description": "This endpoint allows users to logout by invalidating the access token.",
                 "summary": "Logout Service for Client Applications",
                 "tags": [
-                    "Auth"
+                    "User Management"
                 ],
                 "responses": {
                     "200": {
@@ -580,7 +580,7 @@
                 "description": "This endpoint allows Sign In using Microsoft login validator based on access_token.",
                 "summary": "Microsoft Login Validation with Access Token",
                 "tags": [
-                    "Auth"
+                    "User Management"
                 ],
                 "requestBody": {
                     "content": {
@@ -622,7 +622,7 @@
                 "description": "This endpoint allows fetching or listing the role master data.",
                 "summary": "Fetch or List Role Master",
                 "tags": [
-                    "Role Master View"
+                    "Role Master & User Activation/Deactivation"
                 ],
                 "responses": {
                     "200": {
@@ -645,7 +645,7 @@
                 "description": "This endpoint allows saving or updating features associated with a role.",
                 "summary": "Save or Update Features for a Role",
                 "tags": [
-                    "Role Master View"
+                    "Role Master & User Activation/Deactivation"
                 ],
                 "requestBody": {
                     "content": {
@@ -729,7 +729,7 @@
                     }
                 ],
                 "tags": [
-                    "Auth"
+                    "User Management"
                 ],
                 "responses": {
                     "200": {
@@ -801,7 +801,7 @@
                     }
                 ],
                 "tags": [
-                    "User Activation/Deactivation View"
+                    "Role Master & User Activation/Deactivation"
                 ],
                 "responses": {
                     "200": {
@@ -841,7 +841,7 @@
                     }
                 ],
                 "tags": [
-                    "Reviewer's Dashboard or Request Management"
+                    "Request Management or Reviewer's Dashboard"
                 ],
                 "requestBody": {
                     "content": {
@@ -944,7 +944,7 @@
                     }
                 ],
                 "tags": [
-                    "Reviewer's Dashboard or Request Management"
+                    "Request Management or Reviewer's Dashboard"
                 ],
                 "responses": {
                     "200": {
@@ -983,7 +983,7 @@
                 "description": "This endpoint allows users to create a new EDI278 record or inbound FHIR request by uploading data PA authorisation in pdf/json format",
                 "summary": "Create a new EDI278 record or inbound FHIR request.",
                 "tags": [
-                    "Reviewer's Dashboard or Request Management"
+                    "Request Management or Reviewer's Dashboard"
                 ],
                 "requestBody": {
                     "content": {
@@ -1034,7 +1034,7 @@
                     }
                 ],
                 "tags": [
-                    "Reviewer's Dashboard or Request Management"
+                    "Request Management or Reviewer's Dashboard"
                 ],
                 "requestBody": {
                     "content": {
@@ -1084,7 +1084,7 @@
                     }
                 ],
                 "tags": [
-                    "Reviewer's Dashboard or Request Management"
+                    "Request Management or Reviewer's Dashboard"
                 ],
                 "responses": {
                     "200": {
