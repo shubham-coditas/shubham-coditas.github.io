@@ -24,10 +24,6 @@
             "description": "API endpoints for managing user accounts, roles, and permissions."
         },
         {
-            "name": "Role Master & User Activation/Deactivation",
-            "description": "Updated description for Role Master & User Activation/Deactivation."
-        },
-        {
             "name": "Plan/Policy Configuration",
             "description": "API endpoints for managing plan/policy documents and related configurations."
         },
@@ -44,8 +40,8 @@
         "/api/access_control/": {
             "get": {
                 "operationId": "api_access_control_retrieve",
-                "description": "The API authenticate User profile to return users info, its roles, role based permissions and global client app permissions.",
-                "summary": "User profile api to return users info, its roles, role based permissions and global client app permissions.",
+                "description": "This endpoint return User details such as basic users info, its roles, role based permissions and global client app permissions.",
+                "summary": "User details api to return users info, its roles, role based permissions and global client app permissions.",
                 "tags": [
                     "User Management"
                 ],
@@ -363,8 +359,8 @@
         "/api/upload/policy/": {
             "post": {
                 "operationId": "api_upload_policy_create",
-                "description": "Generate embeddings for plan policy documents to facilitate semantic search and analysis for policy-related information",
-                "summary": "Generate Embeddings for Plan Policy Documents",
+                "description": "Add policy documents to facilitate semantic search and analysis for policy-related information",
+                "summary": "Add Policy Documents",
                 "tags": [
                     "Plan/Policy Configuration"
                 ],
@@ -641,10 +637,10 @@
         "/auth/roles/": {
             "get": {
                 "operationId": "auth_roles_list",
-                "description": "This endpoint allows fetching or listing the role master data.",
-                "summary": "Fetch or List Role Master",
+                "description": "This endpoint allows listing the role master data.",
+                "summary": "List Role Master",
                 "tags": [
-                    "Role Master & User Activation/Deactivation"
+                    "User Management"
                 ],
                 "responses": {
                     "200": {
@@ -661,53 +657,13 @@
                         "description": ""
                     }
                 }
-            },
-            "put": {
-                "operationId": "auth_roles_update",
-                "description": "This endpoint allows saving or updating features associated with a role.",
-                "summary": "Save or Update Features for a Role",
-                "tags": [
-                    "Role Master & User Activation/Deactivation"
-                ],
-                "requestBody": {
-                    "content": {
-                        "application/json": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RoleFeaturesUpdateRequest"
-                            }
-                        },
-                        "application/x-www-form-urlencoded": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RoleFeaturesUpdateRequest"
-                            }
-                        },
-                        "multipart/form-data": {
-                            "schema": {
-                                "$ref": "#/components/schemas/RoleFeaturesUpdateRequest"
-                            }
-                        }
-                    },
-                    "required": true
-                },
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GenericResponse"
-                                }
-                            }
-                        },
-                        "description": ""
-                    }
-                }
             }
         },
         "/auth/users/": {
             "get": {
                 "operationId": "auth_users_retrieve",
-                "description": "This endpoint allows fetching or listing all users present in the table for a specific tenant.",
-                "summary": "Fetch or List All Users for a Tenant",
+                "description": "This endpoint allows listing all users present in the table for a specific tenant.",
+                "summary": "List All Users for a Tenant",
                 "parameters": [
                     {
                         "in": "query",
@@ -823,7 +779,7 @@
                     }
                 ],
                 "tags": [
-                    "Role Master & User Activation/Deactivation"
+                    "User Management"
                 ],
                 "responses": {
                     "200": {
@@ -1093,8 +1049,8 @@
             },
             "delete": {
                 "operationId": "dashboard_create_case_destroy",
-                "description": "This endpoint allows users to delete an EDI record by providing necessary data.",
-                "summary": "Delete an EDI record",
+                "description": "This endpoint allows users to delete an EDI278 record by providing necessary data.",
+                "summary": "Delete an EDI278 record",
                 "parameters": [
                     {
                         "in": "query",
@@ -1148,38 +1104,6 @@
                 "tags": [
                     "Review, Request & Clinical Summary"
                 ],
-                "responses": {
-                    "200": {
-                        "content": {
-                            "application/json": {
-                                "schema": {
-                                    "$ref": "#/components/schemas/GenericResponse"
-                                }
-                            }
-                        },
-                        "description": ""
-                    }
-                }
-            }
-        },
-        "/users/import/": {
-            "post": {
-                "operationId": "users_import_create",
-                "description": "This endpoint allows to Import Users[allowed files:- .csv or .xlsx] in Entra ID & DB. Action is restricted and only Client Admin can perform it.",
-                "summary": "Import Users[allowed files:- .csv or .xlsx] in Entra ID & DB. Action is restricted and only Client Admin can perform it.",
-                "tags": [
-                    "User Management"
-                ],
-                "requestBody": {
-                    "content": {
-                        "multipart/form-data": {
-                            "schema": {
-                                "$ref": "#/components/schemas/ImportUsersRequestRequest"
-                            }
-                        }
-                    },
-                    "required": true
-                },
                 "responses": {
                     "200": {
                         "content": {
@@ -5949,6 +5873,11 @@
                 "type": "apiKey",
                 "name": "subscription-key",
                 "in": "query"
+            },
+            "access_token": {
+                "type": "apiKey",
+                "name": "access_token",
+                "in": "header"
             }
         }
     }
