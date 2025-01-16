@@ -364,6 +364,16 @@
                 "tags": [
                     "Plan/Policy Configuration"
                 ],
+                "parameters": [
+                    {
+                        "in": "query",
+                        "name": "request_id",
+                        "schema": {
+                            "type": "string"
+                        },
+                        "required": false
+                    }
+                ],
                 "requestBody": {
                     "content": {
                         "application/json": {
