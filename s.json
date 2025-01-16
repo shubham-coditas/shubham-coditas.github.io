@@ -7,10 +7,10 @@
     },
     "security": [
         {
-            "access_token": []
+            "authorization": []
         },
         {
-            "apiKeyHeader": []
+            "ocp-apim-subscription-key": []
         }
     ],
     "servers": [
@@ -32,7 +32,7 @@
             "description": "Updated description for Request Management or Reviewer's Dashboard."
         },
         {
-            "name": "Review, Request & Clinical Summary",
+            "name": "Review & Clinical Summary",
             "description": "API endpoints for generating and managing review summaries, requests, and clinical summaries."
         }
     ],
@@ -152,10 +152,10 @@
         "/api/export": {
             "post": {
                 "operationId": "api_export_create",
-                "description": "Export generated Review, Request & Clinical Summary in downlodable FHIR format or PDF (outbound)",
-                "summary": "Export generated Review, Request & Clinical Summary",
+                "description": "Export generated Review & Clinical Summary in downlodable FHIR format or PDF (outbound)",
+                "summary": "Export generated Review & Clinical Summary",
                 "tags": [
-                    "Review, Request & Clinical Summary"
+                    "Review & Clinical Summary"
                 ],
                 "requestBody": {
                     "content": {
@@ -225,7 +225,7 @@
                     }
                 ],
                 "tags": [
-                    "Review, Request & Clinical Summary"
+                    "Review & Clinical Summary"
                 ],
                 "requestBody": {
                     "content": {
@@ -300,7 +300,7 @@
                     }
                 ],
                 "tags": [
-                    "Review, Request & Clinical Summary"
+                    "Review & Clinical Summary"
                 ],
                 "responses": {
                     "200": {
@@ -340,7 +340,7 @@
                     }
                 ],
                 "tags": [
-                    "Review, Request & Clinical Summary"
+                    "Review & Clinical Summary"
                 ],
                 "responses": {
                     "200": {
@@ -473,7 +473,7 @@
                     }
                 ],
                 "tags": [
-                    "Review, Request & Clinical Summary"
+                    "Review & Clinical Summary"
                 ],
                 "responses": {
                     "200": {
@@ -503,7 +503,7 @@
                     }
                 ],
                 "tags": [
-                    "Review, Request & Clinical Summary"
+                    "Review & Clinical Summary"
                 ],
                 "requestBody": {
                     "content": {
@@ -1102,7 +1102,7 @@
                     }
                 ],
                 "tags": [
-                    "Review, Request & Clinical Summary"
+                    "Review & Clinical Summary"
                 ],
                 "responses": {
                     "200": {
@@ -1123,7 +1123,7 @@
                 "operationId": "new_pull_clinical_info",
                 "summary": "Pull structured clinical information from client's system",
                 "tags": [
-                    "Review, Request & Clinical Summary"
+                    "Review & Clinical Summary"
                 ],
                 "parameters": [
                     {
@@ -5864,13 +5864,13 @@
             }
         },
         "securitySchemes": {
-            "access_token": {
+            "authorization": {
                 "type": "apiKey",
-                "name": "access_token",
+                "name": "authorization",
                 "in": "header",
-                "description": "Access token for authentication"
+                "description": "Authorization: Bearer access_token"
             },
-            "apiKeyHeader": {
+            "ocp-apim-subscription-key": {
                 "type": "apiKey",
                 "name": "Ocp-Apim-Subscription-Key",
                 "in": "header",
